@@ -1,9 +1,8 @@
-"""
-A multidimensional "Vector" class, take 5
+##Vector 較重要的測試
 
-Tests with two dimensions (same results as ``vector2d_v1.py``)::
-    >>> v1_clone = eval(repr(v1))
-    >>> v1 == v1_clone
+Tests with two dimensions::
+[tab]v1_clone = eval(repr(v1))
+[tab]v1 == v1_clone
         True
     >>> octets = bytes(v1)
     >>> octets
