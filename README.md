@@ -1,2 +1,2 @@
 # Data_Science
-資料科學
+記錄學習 Data_Science 的過程
