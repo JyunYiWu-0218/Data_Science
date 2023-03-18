@@ -1,6 +1,7 @@
 ##Vector 較重要的測試
+---
 
-*Tests with two dimensions::*  
+Tests with two dimensions::  
         >>>v1_clone = eval(repr(v1))    
         >>>v1 == v1_clone    
                 True    
@@ -11,7 +12,7 @@
                 (True, False)
 ---
     
-*Test of ".frombytes()" class method:*  
+Test of ".frombytes()" class method:  
         >>> v1_clone = Vector.frombytes(bytes(v1))  
         >>> v1_clone  
                 Vector([3.0, 4.0])  
@@ -19,7 +20,7 @@
                 True  
 
 ---
-*Tests with three dimensions:*  
+Tests with three dimensions:  
         >>> v1 = Vector([3, 4, 5])  
         >>> x, y, z = v1  
         >>> x, y, z  
@@ -31,12 +32,12 @@
                 (True, False)  
 
 ---
-*Tests of sequence behavior:*
+Tests of sequence behavior:
         >>> v1 = Vector([3, 4, 5])  
         >>> v1[0], v1[len(v1)-1], v1[-1]  
                 (3.0, 5.0, 5.0)  
 
-*Test of slicing:*
+Test of slicing:
         >>> v7 = Vector(range(7))  
         >>> v7[-1]  
                 6.0  
@@ -48,7 +49,7 @@
                 ==TypeError: Vector indices must be integers==  
 
 ---
-*Tests of dynamic attribute access:*
+Tests of dynamic attribute access:
         >>> v7 = Vector(range(10))  
         >>> v7.x  
                 0.0  
@@ -57,23 +58,23 @@
 
 ---
 
-*Dynamic attribute lookup failures::*
-        >>> v7.k  
-                ==Traceback (most recent call last):==  
-                ==...==  
-                ==AttributeError: 'Vector' object has no attribute 'k'==  
+Dynamic attribute lookup failures:  
+        >>> v7.k    
+                ***Traceback (most recent call last):***    
+                ***...***    
+                ***AttributeError: 'Vector' object has no attribute 'k'***    
         >>> v3 = Vector(range(3))  
         >>> v3.t  
-                ==Traceback (most recent call last):==  
-                ==...==  
-                ==AttributeError: 'Vector' object has no attribute 't'==  
+                ***Traceback (most recent call last):***    
+                ***...***    
+                ***AttributeError: 'Vector' object has no attribute 't'***    
         >>> v3.spam  
-                ==Traceback (most recent call last):==  
-                ==...==  
-                ==AttributeError: 'Vector' object has no attribute 'spam'==  
+                ***Traceback (most recent call last):***    
+                ***...***    
+                ***AttributeError: 'Vector' object has no attribute 'spam'***    
 ---
 
-*Tests of hashing::*  
+Tests of hashing::  
         >>> v1 = Vector([3, 4])    
         >>> v3 = Vector([3, 4, 5])     
         >>> v6 = Vector(range(6))    
@@ -82,13 +83,13 @@
 
 ---
 
-*Most hash values of non-integers vary from a 32-bit to 64-bit CPython build:*  
+Most hash values of non-integers vary from a 32-bit to 64-bit CPython build:  
         >>> import sys   
-        >>> hash(v2) == (384307168202284039 if sys.maxsize > 2**32 else 357915986)   
+        >>> hash(v2) == (384307168202284039 if sys.maxsize > 2^32 else 357915986)   
                 True  
 ---
 
-*Tests of "format()" with spherical coordinates in 2D, 3D and 4D:**  
+Tests of "format()" with spherical coordinates in 2D, 3D and 4D:    
         >>> format(Vector([1, 1]), 'h') doctest:+ELLIPSIS  
                 '<1.414213..., 0.785398...>'  
         >>> format(Vector([1, 1]), '.3eh')  
