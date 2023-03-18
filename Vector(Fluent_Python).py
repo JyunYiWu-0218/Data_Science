@@ -42,8 +42,9 @@ class Vector:
                 all(a == b for a, b in zip(self, other)))
     
     def __hash__(self):
-        Hashes == (hash(x) for x in self) # The hash() method returns the hash value of an object.
-        return functools.reduce(operator.xor, Hashes, 0) #? Hashes ?????????? xor ??
+        Hashes = (hash(x) for x in self) # The hash() method returns the hash value of an object.
+        return functools.reduce(operator.xor, Hashes, 0) 
+        # functools.reduce(function, iterable[, initializer]),  For example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5).
         # The functools.reduce(fun,seq) is used to apply a particular function passed in its argument to all of the list elements mentioned in the sequence passed along.
         
     def __abs__(self):
