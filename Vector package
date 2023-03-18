@@ -39,3 +39,5 @@ reprlib(): https://docs.python.org/3/library/reprlib.html
 itertools(): https://docs.python.org/3/library/itertools.html
 
 math(): https://docs.python.org/3/library/math.html
+
+sys(): https://docs.python.org/3/library/sys.html
