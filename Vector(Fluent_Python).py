@@ -82,7 +82,7 @@ class Vector:
         
     def angle(self, n):
         r = math.sqrt(sum(x * x for x in self[n:]))
-        a = math.atan2(r, self[n - 1])
+        a = math.atan2(r, self[n - 1]) # The math.atan2() method returns the arc tangent of y/x, in radians.(The returned value is between PI and -PI.)
         if (n == len(self) - 1) and (self[-1] < 0):
             return math.pi * 2 - a
         else:
@@ -94,9 +94,9 @@ class Vector:
     
     def __format__(self, fmt_spec = ''):
         
-        if fmt_spec.endswith('h'):
+        if fmt_spec.endswith('h'): # string.endswith(value, start, end): The endswith() method returns True if the string ends with the specified value, otherwise False.
             fmt_spec = fmt_spec[:-1]
-            coords = itertools.chain([abs(self)], self.angles())
+            coords = itertools.chain([abs(self)], self.angles()) # chain (*iterables): It groups all the iterables together and produces a single iterable as output.
             outer_fmt = '<{}>'
             
         else:
@@ -104,7 +104,8 @@ class Vector:
             coords = self
             outer_fmt = '({})' 
             components = (format(c, fmt_spec) for c in coords) 
-            return outer_fmt.format(', '.join(components))
+            return outer_fmt.format(', '.join(components)) 
+            # string.join(iterable): The join() method takes all items in an iterable and joins them into one string.(A string must be specified as the separator.)
         
     @classmethod
     def frombytes(cls, octets):
