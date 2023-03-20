@@ -22,6 +22,9 @@ A class may implement several protocols, enabling its instances to fulfill sever
 ## Python Sequences
 ***The philosophy of the Python data model is to cooperate with essential protocols as much as possible.***  
 When it comes to sequences, Python tries hard to work with even the simplest implementations.  
-![螢幕擷取畫面 2023-03-20 005813](https://user-images.githubusercontent.com/128043244/226192330-22093ee4-74bb-44e8-a357-e19b699e4497.png)
+![Sequence_ABC_UML](https://user-images.githubusercontent.com/128043244/226349499-7d6605c2-cf8f-4615-8416-8ea9a812f5c7.png "Sequence_ABC_UML")
+![__getitem__](https://user-images.githubusercontent.com/128043244/226350253-a69a2f13-c01e-4f1e-8342-c5e6dda9738f.png "Partial sequence protocol implementation with __getitem__")
+
+
 
 
