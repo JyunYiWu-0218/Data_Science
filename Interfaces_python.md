@@ -31,6 +31,9 @@ invoking __ getitem __.
 ex: French.py (methods of the sequence protocol: __ getitem __ and __ len __.)    
 Iteration in Python represents an extreme form of duck typing:(the interpreter tries two different methods to iterate over objects.)  
 
+## Monkey-Patching at Runtime
+
+
 
 
 
