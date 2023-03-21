@@ -31,7 +31,13 @@ invoking __ getitem __.
 ex: French.py (methods of the sequence protocol: __ getitem __ and __ len __.)    
 Iteration in Python represents an extreme form of duck typing:(the interpreter tries two different methods to iterate over objects.)  
 
-## Monkey-Patching at Runtime
+## Monkey-Patching at Runtime  
+![Monkey_Patching](https://user-images.githubusercontent.com/128043244/226509758-fd37becf-fa83-454b-9c81-9e110a6baafd.png  "Monkey-Patching")
+The problem is that shuffle operates by swapping items inside the collection, and FrenchDeck only implements the immutable sequence protocol.   
+Mutable sequences must also provide a __ setitem __ method.  
+![mutable_and_____compatible](https://user-images.githubusercontent.com/128043244/226512393-1e4306e5-ea77-4bb8-827b-ed5d000adbfe.png)
+
+
 
 
 
