@@ -35,8 +35,17 @@ Iteration in Python represents an extreme form of duck typing:(the interpreter t
 ![Monkey_Patching](https://user-images.githubusercontent.com/128043244/226509758-fd37becf-fa83-454b-9c81-9e110a6baafd.png  "Monkey-Patching")
 The problem is that shuffle operates by swapping items inside the collection, and FrenchDeck only implements the immutable sequence protocol.   
 Mutable sequences must also provide a __ setitem __ method.  
+***Monkey patching FrenchDeck to make it mutable and compatible with random.shuffle:***      
 ![mutable_and_____compatible](https://user-images.githubusercontent.com/128043244/226512393-1e4306e5-ea77-4bb8-827b-ed5d000adbfe.png)
-
+(Additional)[__setitem__method](http://example.com/ "__setitem__"):    
+object.setitem(self, key, value), Called to implement assignment to self[key].Same note as for getitem().      
+This should only be implemented for mappings if the objects support changes to the values for keys, or if new keys can be added, or for sequences if elements can be replaced. The same exceptions should be raised for improper key values as for the getitem() method.  
+Monkey Patching is powerful, but the code that does the actual patching is very tightly(實際地) coupled with the program to be patched, often handling private and undocumented parts.  
+  
+## Duck Typing commonly used in Python :  
+***Duck Typing : (A style of dynamic typing)***    
+In this style, the effective semantics of an object is not determined by inheriting from a specific class or implementing a specific interface, but by "the current set of methods and properties".  
+**In other words, the focus is on the behavior of the object, what it can do; not on the type of the object.**
 
 
 
