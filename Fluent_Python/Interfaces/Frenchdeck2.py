@@ -19,7 +19,7 @@ class FrenchDeck2(collections.MutableSequence): # FrenchDeck 為 MutableSequence
         return self._cards[position]
     
     
-    def __setitem__(self, position, value):
+    def __setitem__(self, position, value): # __setitem__ is all we need to enable shuffling.
         self._cards[position] = value
         
         
