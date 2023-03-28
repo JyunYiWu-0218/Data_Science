@@ -37,7 +37,7 @@ The problem is that shuffle operates by swapping items inside the collection, an
 Mutable sequences must also provide a __ setitem __ method.  
 ***Monkey patching FrenchDeck to make it mutable and compatible with random.shuffle:***      
 ![mutable_and_____compatible](https://user-images.githubusercontent.com/128043244/226512393-1e4306e5-ea77-4bb8-827b-ed5d000adbfe.png)
-(Additional)[__setitem__method](http://example.com/ "__setitem__"):    
+![__setitem__method](https://www.geeksforgeeks.org/__getitem__-and-__setitem__-in-python/):    
 object.setitem(self, key, value), Called to implement assignment to self[key].Same note as for getitem().      
 This should only be implemented for mappings if the objects support changes to the values for keys, or if new keys can be added, or for sequences if elements can be replaced. The same exceptions should be raised for improper key values as for the getitem() method.  
 Monkey Patching is powerful, but the code that does the actual patching is very tightly(實際地) coupled with the program to be patched, often handling private and undocumented parts.  
@@ -45,7 +45,18 @@ Monkey Patching is powerful, but the code that does the actual patching is very 
 ## Duck Typing commonly used in Python :  
 ***Duck Typing : (A style of dynamic typing)***    
 In this style, the effective semantics of an object is not determined by inheriting from a specific class or implementing a specific interface, but by "the current set of methods and properties".  
-**In other words, the focus is on the behavior of the object, what it can do; not on the type of the object.**
+**In other words, the focus is on the behavior of the object, what it can do; not on the type of the object.**  
+
+## Subclassing an Collections_ABC
+leverage an existing ABC, collections.MutableSequence, before daring to invent our own.
+![Frenchdeck2.py](https://github.com/JyunYiWu-0218/Data_Science/blob/Python/Fluent_Python/Interfaces/Frenchdeck2.py)  
+![Double_Underscore_Method(magic_method)](https://blog.finxter.com/python-list-of-dunder-methods/)  
+Python does not check for the implementation of the abstract methods at import time(when the frenchdeck2.py module is loaded and compiled), but only at runtime when
+we actually try to instantiate FrenchDeck2.  
+If fail to implement any abstract method, get a TypeError exception with a message such as "Can't instantiate abstract class FrenchDeck2 with abstract methods 
+delitem method, insert".    
+That’s why implement delitem method and insert, even if our FrenchDeck2 examples do not need those behaviors: the MutableSequence ABC demands them.  
+
 
 
 
