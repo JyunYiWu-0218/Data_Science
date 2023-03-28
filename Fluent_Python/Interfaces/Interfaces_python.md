@@ -57,8 +57,15 @@ If fail to implement any abstract method, get a TypeError exception with a messa
 delitem method, insert".    
 That’s why implement delitem method and insert, even if our FrenchDeck2 examples do not need those behaviors: the MutableSequence ABC demands them.  
 ![MutableSequence_ABCs](https://user-images.githubusercontent.com/128043244/228121863-e5975a58-8df7-40a1-a11f-2d5a9b6a1265.png)  
-
-
+## Python - Magic or Dunder Methods  
+Use the dir() function to see the number of magic methods inherited by a class.  
+![dir(int)](https://user-images.githubusercontent.com/128043244/228255691-e0d73a2a-2c0f-4c0a-872d-56ba591b2bc9.png)
+## ABCs in the Standard Library
+Since Python 2.6, ABCs are available in the standard library.  
+Most are defined in the collections.abc module, but there are others.  
+But the most widely used is collections.  
+### ABCs in collections.abc
+![collections abc_UML](https://user-images.githubusercontent.com/128043244/228258576-ee78613a-f392-49da-946c-47c3dd966ca7.png)
 
 
 
