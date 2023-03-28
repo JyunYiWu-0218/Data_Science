@@ -56,6 +56,7 @@ we actually try to instantiate FrenchDeck2.
 If fail to implement any abstract method, get a TypeError exception with a message such as "Can't instantiate abstract class FrenchDeck2 with abstract methods 
 delitem method, insert".    
 That’s why implement delitem method and insert, even if our FrenchDeck2 examples do not need those behaviors: the MutableSequence ABC demands them.  
+![MutableSequence_ABCs](https://user-images.githubusercontent.com/128043244/228121863-e5975a58-8df7-40a1-a11f-2d5a9b6a1265.png)  
 
 
 
