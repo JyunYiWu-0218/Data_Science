@@ -75,6 +75,18 @@ But the most widely used is collections.
 - Rational    
 - Intergral  
 
+### The Tombola ABC has four methods.(The ABC will be named Tombola)
+abstract methods:    
+- .load(): put items into the container.    
+- .pick(): remove one item at random from the container, returning it.    
+
+concrete methods:    
+- .loaded(): return True if there is at least one item in the container.    
+- .inspect(): return a sorted tuple built from the items currently in the container,without changing its contents (its internal ordering is not preserved).  
+
+![ABC_and_three_subclasses](https://user-images.githubusercontent.com/128043244/228889705-00803831-3aad-40e4-9d63-6559c79b9420.png)
+
+
 
 
 
