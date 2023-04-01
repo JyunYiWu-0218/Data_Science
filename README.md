@@ -1,10 +1,6 @@
-# Data_Science 學習歷程(個人)  
-記錄學習 Data_Science 的過程，並分享常看到，常聽到，常用到的技術及背後觀念(以個人觀點出發，有不對的請給予批評及指教)  
-主要以 Python 為主  
-=======================
-# 目錄   
--   Data_Science 學習歷程(個人)
--   目錄
+## 目錄   
+-   [目錄](#book)
+-   [Data_Science 學習歷程(個人)](#learn)
 -   Common Development Environment
     -   Anaconda
 -   (Recommended) Basic Knowledge
@@ -39,3 +35,8 @@
     -   Recurrent Neural Network(還在學習)
     -   Deep Belief Networks(還未學習)
     -   Convolutional Neural Networks
+<a name="book"/>
+
+## Data_Science 學習歷程(個人)  
+記錄學習 Data_Science 的過程，並分享常看到，常聽到，常用到的技術及背後觀念(以個人觀點出發，有不對的請給予批評及指教)  主要以 Python 為主  
+<a name="learn"/>
