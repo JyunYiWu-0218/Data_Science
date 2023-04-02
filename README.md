@@ -1,17 +1,10 @@
 ## 目錄   
 -   目錄
 -   [Data_Science 學習歷程(個人)](#learn)
--   [Common Development Environment](#Common)
-    -   Anaconda
 -   [(Recommended) Basic Knowledge](#Knowledge)
 -   [Introduction to Applied Technology](#Introduction)
     -   Machine Learning
-        -   Data Preprocessing
-        -   Analyse Information
-        -   Data Visualization
     -   Deep Learing
-        -   Applied Technology
-        -   Neural Network(淺談)
 -   [Foreword](#Foreword)
 -   [Machine Learning](#Machine)
     -   Data Preprocessing
@@ -41,11 +34,14 @@
 <a name="learn"/>
 
 
-## Common Development Environment
-<a name="Common"/>
-
 
 ## (Recommended) Basic Knowledge
+To engage in AI-related research, of course, you must have a certain understanding of basic mathematical knowledge! (You can also be a package user or a coder)  
+**The following are the required mathematical knowledge:**    
+1.微積分(calculus)  
+2.偏導函數、重積分(partial derivative function, reintegration)  
+3.線性代數(Linear Algebra)    
+4.機率與統計(Probability and Statistics)  
 <a name="Knowledge"/>
 
 
@@ -53,6 +49,9 @@
 An introduction to machine learning and deep learning.  
 
 ### Machine Learning
+機器學習是人工智慧的一種子方法，利用完整的一套流程，將資料整理、分析、視覺化，讓原本無聊的資料煥然一新的呈現在你我的眼前!      
+![calsses](https://user-images.githubusercontent.com/128043244/229371106-baaa4e65-d9ff-4d05-8fd7-7947c825ca62.png)
+![Regression](https://user-images.githubusercontent.com/128043244/229371194-2bee9c06-b909-42a4-a4e7-e8b55800d2e8.png)
 
 
 ### Deep Learing
