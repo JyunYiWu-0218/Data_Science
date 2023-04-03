@@ -9,25 +9,25 @@
 -   [Machine Learning](#Machine)
     -   Data Preprocessing
     -   Supervised Learning
-        -   Regression Analysis
-        -   Classification
+        -   [x] Regression Analysis
+        -   [x] Classification
     -   非監督式學習 (Unsupervised Learning)
-        -   Principal components analysis(PCA)
-        -   Cluster analysis
-        -   Generative Adversarial Network(GAN)
+        -   [x] Principal components analysis(PCA)
+        -   [x] Cluster analysis
+        -   [x] Generative Adversarial Network(GAN)
     -   Semi-supervised Learning
-        -   Semi-supervised Generative Model(還未學習)
-        -   Self-training(還未學習)
-        -   Entropy-based Regularization(還未學習)
-        -   Cluster and then label(還未學習)
-        -   Graph-based Approach(還未學習)
-        -   Better Representation(還未學習)
+        -   [ ] Semi-supervised Generative Model
+        -   [ ] Self-training
+        -   [ ] Entropy-based Regularization
+        -   [x] Cluster and then label
+        -   [ ] Graph-based Approach
+        -   [ ] Better Representation
     -   Reinforcement Learning
 -   [Deep Learing](#Deep)
-    -   Deep Neural Networks(還未學習)
-    -   Recurrent Neural Network(還在學習)
-    -   Deep Belief Networks(還未學習)
-    -   Convolutional Neural Networks
+    -   [ ] Deep Neural Networks
+    -   [ ] Recurrent Neural Network
+    -   [ ] Deep Belief Networks
+    -   [x] Convolutional Neural Networks
 
 ## Data_Science 學習歷程(個人)  
 記錄學習 Data_Science 的過程，並分享常看到，常聽到，常用到的技術及背後觀念(以個人觀點出發，有不對的請給予批評及指教)  主要以 Python 為主    
@@ -64,13 +64,17 @@ An introduction to machine learning and deep learning.
 
 
 ## Foreword
+機器學習 (Machine Learning) 與深度學習 (Deep Learing) 都是現在很熱門的技術，各自有一套標準的執行流程，會藉由接下來的主題 一 一 詮釋!  
 <a name="Foreword"/>
 
 
 ## Machine Learning
 In-Depth Introduction to Machine Learning (Theory).  
 
-### Data Preprocessing
+### Data Preprocessing (資料預處理)
+資料不可能都是馬上就可以進行分析(analyze)及視覺化(visualize)的，現實生活中的資料遠遠比理想中的資料還要難處理，會遇到很多無法預期的事情(收集資料時發現資料過於離散、資料遺失、類別不大相同、型別(Type)不同等)，因此資料預處理就是一件極其重要的過程！  
+![Data_Preprocessing](https://user-images.githubusercontent.com/128043244/229455675-511abcb6-c8fb-4371-b89b-3e308ae18832.png)
+
 
 
 ### Supervised Learning
