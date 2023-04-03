@@ -76,10 +76,44 @@ In-Depth Introduction to Machine Learning (Theory).
 ![Data_Preprocessing](https://user-images.githubusercontent.com/128043244/229455675-511abcb6-c8fb-4371-b89b-3e308ae18832.png)
 #### Missing value handling (缺失值處理)
 **一般來說缺失值處理會用以下常見的方法進行處理:**  
-1.直接剔除帶有缺失值(Missing value)的行(column)或列(raw):  
+***1. 直接剔除(Deletion)帶有缺失值(Missing value)的行(column)或列(raw):***    
 此方法不建議頻繁使用，當資料之間具有一定相關性($-1 \leq \rho \leq 1$)時，貿然刪除資料會導致分析結果不佳。      
-相關係數(Pearson’s correlation coefficient, $\rho$):     
-<img src="https://latex.codecogs.com/png.latex? \rho = \frac{\sum_{i=1}^{n}\left ( x_{i}-\mu _{x} \right )\left ( y_{i}-\mu _{y} \right )}{\sqrt{\sum_{i=1}^{n}\left ( x_{i}-\mu _{x} \right )^{2}\sum_{i=1}^{n}\left ( y_{i}-\mu _{y} \right )^{2}}}">  
+相關係數(Pearson’s correlation coefficient, $\rho$):    
+<img src='https://latex.codecogs.com/png.image?%5Cinline%20%5Clarge%20%5Cdpi%7B200%7D%5Cbg%7Bwhite%7D%5Crho%20=%20%5Cfrac%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft%20(%20x_%7Bi%7D-%5Cmu%20_%7Bx%7D%20%5Cright%20)%5Cleft%20(%20y_%7Bi%7D-%5Cmu%20_%7By%7D%20%5Cright%20)%7D%7B%5Csqrt%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft%20(%20x_%7Bi%7D-%5Cmu%20_%7Bx%7D%20%5Cright%20)%5E%7B2%7D%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft%20(%20y_%7Bi%7D-%5Cmu%20_%7By%7D%20%5Cright%20)%5E%7B2%7D%7D%7D'>
+
+***2. 填補固定值(Dummy substitution):***  
+replace missing values with fill_value. Can be used with strings or numeric data.  
+If None, fill_value will be 0 when imputing numerical data and “missing_value” for strings or object data types.  
+```python=
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values = np.nan , strategy = 'constant', fill_value = None)
+```
+
+
+***3. 填補平均值(Mean substitution):***  
+replace missing values using the mean along each column. Can only be used with numeric data.  
+```python=
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values = np.nan , strategy = 'mean', fill_value = None)
+```  
+
+
+***4. 填補高頻資料(Frequent substitution):***  
+replace missing using the most frequent value along each column. Can be used with strings or numeric data.  
+If there is more than one such value, only the smallest is returned.   
+```python=
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values = np.nan , strategy = 'most_frequent', fill_value = None)
+```
+
+
+***5. 填補中位數(Median substitution):***  
+replace missing values using the median along each column. Can only be used with numeric data.  
+```python=
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values = np.nan , strategy = 'median', fill_value = None)
+```
+
 
 ### Supervised Learning
 
