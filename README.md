@@ -55,6 +55,10 @@ An introduction to machine learning and deep learning.
 
 
 ### Deep Learing
+利用神經網路(Neural Network)讓電腦能從事人類的行為或是人類的職業!  
+![Kears](https://user-images.githubusercontent.com/128043244/229407974-adf2c83c-afa9-446b-9eeb-7603c2632ea7.png)
+![LAS_and_CTC_NLP](https://user-images.githubusercontent.com/128043244/229408001-8bd5c59f-fe6d-4a73-9e1a-70242ec218c7.png)
+![neural_network](https://user-images.githubusercontent.com/128043244/229408206-1cd5ffec-103f-4968-b5f2-6977ca45ded0.png)
 
 <a name="Introduction"/>
 
