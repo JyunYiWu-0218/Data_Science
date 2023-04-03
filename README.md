@@ -74,7 +74,12 @@ In-Depth Introduction to Machine Learning (Theory).
 ### Data Preprocessing (資料預處理)
 資料不可能都是馬上就可以進行分析(analyze)及視覺化(visualize)的，現實生活中的資料遠遠比理想中的資料還要難處理，會遇到很多無法預期的事情(收集資料時發現資料過於離散、資料遺失、類別不大相同、型別(Type)不同等)，因此資料預處理就是一件極其重要的過程！  
 ![Data_Preprocessing](https://user-images.githubusercontent.com/128043244/229455675-511abcb6-c8fb-4371-b89b-3e308ae18832.png)
-
+#### Missing value handling (缺失值處理)
+**一般來說缺失值處理會用以下常見的方法進行處理:**  
+1.直接剔除帶有缺失值(Missing value)的行(column)或列(raw):  
+此方法不建議頻繁使用，當資料之間具有一定相關性($-1 \leq \rho \leq 1$)時，貿然刪除資料會導致分析結果不佳。      
+相關係數(Pearson’s correlation coefficient, $\rho$):   
+  
 
 
 ### Supervised Learning
