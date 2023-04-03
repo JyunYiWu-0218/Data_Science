@@ -78,9 +78,8 @@ In-Depth Introduction to Machine Learning (Theory).
 **一般來說缺失值處理會用以下常見的方法進行處理:**  
 1.直接剔除帶有缺失值(Missing value)的行(column)或列(raw):  
 此方法不建議頻繁使用，當資料之間具有一定相關性($-1 \leq \rho \leq 1$)時，貿然刪除資料會導致分析結果不佳。      
-相關係數(Pearson’s correlation coefficient, $\rho$):   
-  
-
+相關係數(Pearson’s correlation coefficient, $\rho$):     
+<img src="https://latex.codecogs.com/png.latex? \rho = \frac{\sum_{i=1}^{n}\left ( x_{i}-\mu _{x} \right )\left ( y_{i}-\mu _{y} \right )}{\sqrt{\sum_{i=1}^{n}\left ( x_{i}-\mu _{x} \right )^{2}\sum_{i=1}^{n}\left ( y_{i}-\mu _{y} \right )^{2}}}">  
 
 ### Supervised Learning
 
