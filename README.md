@@ -116,6 +116,18 @@ imputer = SimpleImputer(missing_values = np.nan , strategy = 'median', fill_valu
 ```
 
 
+#### Outlier handling (異常值處理)
+異常值：偏離樣本整體數據的值    
+
+##### 判斷異常值 (Judge outliers)
+***1. 常識判斷：根據資料的特性去做判斷***  
+  
+  
+***2. 基本統計方法：對資料進行描述性統計***  
+  
+<img src='https://upload.wikimedia.org/wikipedia/commons/2/25/The_Normal_Distribution.svg'>
+
+
 ### Supervised Learning
 
 
