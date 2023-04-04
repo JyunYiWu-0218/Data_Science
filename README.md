@@ -125,8 +125,36 @@ imputer = SimpleImputer(missing_values = np.nan , strategy = 'median', fill_valu
   
 ***2. 基本統計方法：對資料進行描述性統計***  
   
-<img src='https://upload.wikimedia.org/wikipedia/commons/2/25/The_Normal_Distribution.svg'>
+<img src='https://image-static.segmentfault.com/306/690/3066903361-6011059e8a47e'>
 
+$\mu \pm 3\sigma$,data need to be processed for outliers！  
+
+```Python=
+import numpy as np
+def outliers_z_score(data,times):
+    data_mean = np.mean(data)
+    data_stdev = np.std(data)
+    z_scores = [(i - data_mean) / data_stdev for i in x]
+    return np.where(np.abs(z_scores) > times)
+```
+
+***3. 盒鬚圖判別法***  
+  
+<img src='https://www.finereport.com/tw/wp-content/uploads/2022/11/2022111401C.png'>
+
+
+```python=
+import seaborn as sns
+import matplotlib.pyplot as plt
+features=["A","B","C","D","E"]
+fig, ax = plt.subplots()
+fig.subplots_adjust(hspace=1, wspace=0.6)
+location=1
+for i in features:
+    plt.subplot(2, 3, location)    
+    sns.boxplot(data=train_df,x=i) 
+    location+=1
+```
 
 ### Supervised Learning
 
