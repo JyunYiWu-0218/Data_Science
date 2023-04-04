@@ -79,6 +79,7 @@ In-Depth Introduction to Machine Learning (Theory).
 ***1. 直接剔除(Deletion)帶有缺失值(Missing value)的行(column)或列(raw):***    
 此方法不建議頻繁使用，當資料之間具有一定相關性($-1 \leq \rho \leq 1$)時，貿然刪除資料會導致分析結果不佳。      
 相關係數(Pearson’s correlation coefficient, $\rho$):    
+
 <img src='https://latex.codecogs.com/png.image?%5Cinline%20%5Clarge%20%5Cdpi%7B200%7D%5Cbg%7Bwhite%7D%5Crho%20=%20%5Cfrac%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft%20(%20x_%7Bi%7D-%5Cmu%20_%7Bx%7D%20%5Cright%20)%5Cleft%20(%20y_%7Bi%7D-%5Cmu%20_%7By%7D%20%5Cright%20)%7D%7B%5Csqrt%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft%20(%20x_%7Bi%7D-%5Cmu%20_%7Bx%7D%20%5Cright%20)%5E%7B2%7D%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft%20(%20y_%7Bi%7D-%5Cmu%20_%7By%7D%20%5Cright%20)%5E%7B2%7D%7D%7D'>
 
 ***2. 填補固定值(Dummy substitution):***  
