@@ -231,7 +231,24 @@ $$L2(X) = \sqrt{{x_{1}}^{2} + {x_{2}}^{2} + {x_{3}}^{2} + ... + {x_{n}}^{2}}$$
 $$L1(X) = \left | X_{1} \right | + \left | X_{2} \right | + ... + \left | X_{n} \right |$$
 
 
-### Supervised Learning
+### 監督式學習(Supervised Learning)  
+- Regression Analysis    
+***1. Simple Linear Regression***  
+***2. multivariate regression***   
+***3. Log-linear regression***   
+***4. Log probability regression***  
+***5. Nonlinear regression***   
+***6. Partial regression***  
+***7. (自我回歸)Ego regression***    
+    - Autoregressive Moving Average Model
+    - (差分)Differential Autoregressive Moving Average Model
+    - Vector autoregressive models
+
+- Classification   
+***1. Logistic Regression***  
+***2. Support Vector Machine(SVM)***  
+***3. Naive Bayes classifier***  
+***4. Decision Tree***  
 
 
 ### 非監督式學習 (Unsupervised Learning)
