@@ -85,7 +85,7 @@ In-Depth Introduction to Machine Learning (Theory).
 ***2. 填補固定值(Dummy substitution):***  
 replace missing values with fill_value. Can be used with strings or numeric data.  
 If None, fill_value will be 0 when imputing numerical data and “missing_value” for strings or object data types.  
-```python=
+```python
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan , strategy = 'constant', fill_value = None)
 ```
@@ -93,7 +93,7 @@ imputer = SimpleImputer(missing_values = np.nan , strategy = 'constant', fill_va
 
 ***3. 填補平均值(Mean substitution):***  
 replace missing values using the mean along each column. Can only be used with numeric data.  
-```python=
+```python
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan , strategy = 'mean', fill_value = None)
 ```  
@@ -102,7 +102,7 @@ imputer = SimpleImputer(missing_values = np.nan , strategy = 'mean', fill_value 
 ***4. 填補高頻資料(Frequent substitution):***  
 replace missing using the most frequent value along each column. Can be used with strings or numeric data.  
 If there is more than one such value, only the smallest is returned.   
-```python=
+```python
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan , strategy = 'most_frequent', fill_value = None)
 ```
@@ -110,7 +110,7 @@ imputer = SimpleImputer(missing_values = np.nan , strategy = 'most_frequent', fi
 
 ***5. 填補中位數(Median substitution):***  
 replace missing values using the median along each column. Can only be used with numeric data.  
-```python=
+```python
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan , strategy = 'median', fill_value = None)
 ```
@@ -129,7 +129,7 @@ imputer = SimpleImputer(missing_values = np.nan , strategy = 'median', fill_valu
 
 $\mu \pm 3\sigma$,data need to be processed for outliers！  
 
-```Python=
+```Python
 import numpy as np
 def outliers_z_score(data,times):
     data_mean = np.mean(data)
@@ -143,7 +143,7 @@ def outliers_z_score(data,times):
 <img src='https://www.finereport.com/tw/wp-content/uploads/2022/11/2022111401C.png'>
 
 
-```python=
+```python
 import seaborn as sns
 import matplotlib.pyplot as plt
 features=["A","B","C","D","E"]
@@ -160,7 +160,7 @@ for i in features:
 
 ***One-hot_Encoding***  
 <img src='https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZFCX83XaMNzOAXRxAcvMJw.png'>
-```python = 
+```python 
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 labelEncoder_x = LabelEncoder()
@@ -174,7 +174,7 @@ x = ct.fit_transform(x)
 1.Standard Scaler     
 $$Z = \frac{\bar{X} - \mu }{\sigma / \sqrt{n}}$$  
 
-```python=
+```python
 import pandas pd
 from sklearn.preprocessing import StandardScaler
 
@@ -188,7 +188,15 @@ X_test_scaled = scaler.transform(X_test)
 2.Min Max Scale  
 $$X_{i} =\frac{X_{i} - min(X)}{max(X) - min(X)}$$
 
-```python=
+```python
+means = X_train.mean(axis = 0)
+max_min = X_train.max(axis = 0) - X_train.min(axis = 0)
+
+X_train_scaled = (X_train - means) / max_min
+X_test_scaled = (X_test - means) / max_min
+```
+
+```python
 import pandas pd
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
@@ -205,7 +213,7 @@ linridge = Ridge(alpha=20.0).fit(X_train_scaled, y_train)
 3.Robust Scaling   
 $$\bar{x} = \frac{X - median(X)}{75th quantlie(X) - 25th quantlie(X)}$$
 
-```python=
+```python
 robustscaler = RobustScaler() # create an object
 X_train_scaled = robustscaler.fit_transform(X_train)
 X_test_scaled = robustscaler.transform(X_test)
