@@ -73,7 +73,7 @@ In-Depth Introduction to Machine Learning (Theory).
 
 ### Data Preprocessing (資料預處理)
 資料不可能都是馬上就可以進行分析(analyze)及視覺化(visualize)的，現實生活中的資料遠遠比理想中的資料還要難處理，會遇到很多無法預期的事情(收集資料時發現資料過於離散、資料遺失、類別不大相同、型別(Type)不同等)，因此資料預處理就是一件極其重要的過程！  
-![Data_Preprocessing](https://user-images.githubusercontent.com/128043244/229455675-511abcb6-c8fb-4371-b89b-3e308ae18832.png)
+<img src='https://www.ipt.fraunhofer.de/en/offer/digitization/big-data/data-quality/jcr:content/contentPar/sectioncomponent/sectionParsys/textwithasset/imageComponent/image.img.4col.large.png/1589185347498/datenqualitaet-datenvorverarbeitung-bild1.png'>
 #### Missing value handling (缺失值處理)
 **一般來說缺失值處理會用以下常見的方法進行處理:**  
 ***1. 直接剔除(Deletion)帶有缺失值(Missing value)的行(column)或列(raw):***    
@@ -155,6 +155,73 @@ for i in features:
     sns.boxplot(data=train_df,x=i) 
     location+=1
 ```
+
+#### Data Transformation (One-hot_Encoding and feature_scaling)
+
+***One-hot_Encoding***  
+<img src='https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZFCX83XaMNzOAXRxAcvMJw.png'>
+```python = 
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+labelEncoder_x = LabelEncoder()
+x[col, raw] = labelEncoder_x.fit_transform(x[col, raw])
+ct = ColumnTransformer([("sex", OneHotEncoder(), [raw])] , remainder='passthrough')
+x = ct.fit_transform(x)
+```
+
+***feature_scaling***    
+<img src='https://python-data-science.readthedocs.io/en/latest/_images/scaling.png'>
+1.Standard Scaler     
+$$Z = \frac{\bar{X} - \mu }{\sigma / \sqrt{n}}$$  
+
+```python=
+import pandas pd
+from sklearn.preprocessing import StandardScaler
+
+X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state = 0)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+# note that the test set using the fitted scaler in train dataset to transform in the test set
+X_test_scaled = scaler.transform(X_test)
+```
+
+2.Min Max Scale  
+$$X_{i} =\frac{X_{i} - min(X)}{max(X) - min(X)}$$
+
+```python=
+import pandas pd
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+
+from sklearn.linear_model import Ridge
+X_train, X_test, y_train, y_test = train_test_split(X_crime, y_crime, random_state = 0)
+
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+linridge = Ridge(alpha=20.0).fit(X_train_scaled, y_train)
+```
+
+3.Robust Scaling   
+$$\bar{x} = \frac{X - median(X)}{75th quantlie(X) - 25th quantlie(X)}$$
+
+```python=
+robustscaler = RobustScaler() # create an object
+X_train_scaled = robustscaler.fit_transform(X_train)
+X_test_scaled = robustscaler.transform(X_test)
+```
+
+4.Normalizer(Scaling to unit length)  
+Scales each data point such that the feature vector has a Euclidean length of 1.  
+將變數值除以變數的歐幾里得距離(Euclidean distance)或曼哈頓距離(Manhattan distance)。  
+$$\bar{x} = \frac{X}{\left \| X \right \|}$$  
+
+**Euclidean distance**    
+$$L2(X) = \sqrt{{x_{1}}^{2} + {x_{2}}^{2} + {x_{3}}^{2} + ... + {x_{n}}^{2}}$$
+
+**Manhattan distance**  
+$$L1(X) = \left | X_{1} \right | + \left | X_{2} \right | + ... + \left | X_{n} \right |$$
+
 
 ### Supervised Learning
 
