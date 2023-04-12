@@ -259,6 +259,23 @@ $$\frac{\partial SSR}{\partial b_{1}} = \frac{\partial}{\partial b_{1}} \sum_{i=
 $b_{1}$ 為斜率： $b_{1} > 0$ , $\hat{y_{i}}$ 隨著 $x_{i}$ 上升而增加； $b_{1} < 0$ , $\hat{y_{i}}$ 隨著 $x_{i}$ 增加而減少    
 $b_{0}$ 為截距： 當 $x_{i} = 0$ 時, $b_{0}$ 便相當於 $\hat{y_{i}}$ 的平均值； 當 $x_{i} \neq 0$ 時, 則 $b_{0}$ 無意義   
 
+```python
+def simple_linear_regression(raw_x, raw_y):
+    n = np.size(raw_x)  #set the size of   
+    x = np.array(raw_x)
+    y = np.array(raw_y)
+    x_mean = np.mean(x) #average
+    y_mean = np.mean(y)
+
+    num1 = np.sum(y*x) - n*y_mean*x_mean
+    num2 = np.sum(x*x) - n*x_mean*x_mean
+     
+    b_1 = num1 / num2
+    b_0 = y_mean - b_1 * x_mean
+    
+    return (b_0, b_1)
+```
+
     誤差項 $\varepsilon _{0}$ 三大假設:      
     1. 常態性(Normality)：若母體為常態分配，則遵循(採用常態機率圖 normal probability plot 或 Shapiro-Wilk常態性檢定做檢查)     
     2. 獨立性(Independency)：誤差項需相互獨立(Durbin-Watson test來檢查)  
