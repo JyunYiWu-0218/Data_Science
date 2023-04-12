@@ -235,10 +235,26 @@ $$L1(X) = \left | X_{1} \right | + \left | X_{2} \right | + ... + \left | X_{n} 
 
 ### 監督式學習(Supervised Learning)  
 - Regression Analysis    
-***1. Simple Linear Regression***  
+**1. Simple Linear Regression**  
 使用時機：當只有單一變數時。  
-數學式：
-      $$\hat{y_{i}} = b_{0} + b_{1} * x$$
+方程式：
+      $$\hat{y_{i}} = b_{0} + b_{1} * x$$ 
+
+假設檢定：  
+1.顯著性檢定(F test): 探討迴歸模型中的 $\beta$ 係數是否全部為0  
+
+$$\begin{cases}
+ & \text{} H_{0}: \beta_{1}=\beta_{2}=\beta_{n}=0 \\ 
+ & \text{} H_{1}: \beta \neq 0(\beta_{1}or\beta_{2}or\beta_{n}) \\
+\end{cases}$$  
+
+2.邊際檢定(t test): 個別自變數之 $\beta$ 係數是否為0  
+
+$$\begin{cases}
+ & \text{} H_{0}: \beta_{n}=0 \\ 
+ & \text{} H_{1}: \beta_{n} \neq 0 \\
+\end{cases}$$  
+
 
 利用 SSR 來選出最佳預測線(當 SSR 達到最小值即可找出)：           
 
@@ -348,7 +364,26 @@ $$\begin{cases}
           
 (公式為 95% 信賴區間的情況， $\alpha$ 通常情況為 0.05)  
 
-***2. multivariate regression***   
+***2. multivariate regression***  
+使用時機：兩個以上的自變數(x)。(y 必須連續)    
+方程式：  
+
+$$y=a+b_{1}x_{1}+b_{2}x_{2}+.... +b_{n}x_{n}$$
+
+模型:  
+
+$$y=\beta_{0}+\beta_{1}x_{1}+\beta_{2}x_{2}+ ... +\beta_{n}x_{n}+\epsilon$$
+
+- $\beta_{0}$ 為截距  
+- $\beta_{1}$ ~ $\beta_{n}$ 為回歸係數(需估計)  
+- $\epsilon$ 誤差項   
+
+估計式:  
+
+$$\hat{y}=\hat{\beta_{1}}x_{1}+\hat{\beta_{2}}x_{2}+.... +\hat{\beta_{n}}x_{n}$$
+
+
+
 ***3. Log-linear regression***   
 ***4. Log probability regression***  
 ***5. Nonlinear regression***   
