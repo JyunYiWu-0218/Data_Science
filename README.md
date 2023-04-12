@@ -169,8 +169,10 @@ ct = ColumnTransformer([("sex", OneHotEncoder(), [raw])] , remainder='passthroug
 x = ct.fit_transform(x)
 ```
 
-***feature_scaling***    
-<img src='https://python-data-science.readthedocs.io/en/latest/_images/scaling.png'>
+***feature_scaling***  
+
+<img src='https://mkang32.github.io/images/2020-12-27-feature-scaling/scaling.png'>
+
 1.Standard Scaler     
 $$Z = \frac{\bar{X} - \mu }{\sigma / \sqrt{n}}$$  
 
@@ -236,8 +238,27 @@ $$L1(X) = \left | X_{1} \right | + \left | X_{2} \right | + ... + \left | X_{n} 
 ***1. Simple Linear Regression***  
 使用時機：當只有單一變數時。  
 數學式：
-        $$y = b_{0} + b_{1}\cdot x + \varepsilon _{0}$$
-        
+      $$\hat{y_{i}} = b_{0} + b_{1} * x$$
+
+利用 SSR 來選出最佳預測線(當 SSR 達到最小值即可找出)：           
+
+$$SSR = \sum_{i=1}^{n}{\varepsilon_{i}}^{2} = \sum_{i=1}^{n}\left ( y_{i} - \hat{y_{i}} \right )^{2}$$
+
+對 $b_{0}$ 及 $b_{1}$ 進行偏微分：  
+
+$$\frac{\partial SSR}{\partial b_{0}} = \frac{\partial}{\partial b_{0}} \sum_{i=1}^{n}\left ( y_{i}-b_{0}-b_{1}x_{i} \right )^{2}$$
+
+$$b_{0}=\bar{y}-b_{1}\bar{x}$$
+
+$$\frac{\partial SSR}{\partial b_{1}} = \frac{\partial}{\partial b_{1}} \sum_{i=1}^{n}\left ( y_{i}-b_{0}-b_{1}x_{i} \right )^{2}$$
+
+將 $b_{0}$ 代入 $b_{1}$ 進行運算：      
+
+<img src='https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D%5Cbg%7Bwhite%7Db_%7B1%7D=%5Cfrac%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft(%20y_%7Bi%7D-%5Cbar%7By%7D%20%5Cright%20)x_%7Bi%7D%7D%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft(%20x_%7Bi%7D-%5Cbar%7Bx%7D%20%5Cright%20)x_%7Bi%7D%7D=%5Cfrac%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft(%20y_%7Bi%7Dx_%7Bi%7D-n%5Cbar%7By%7D%5Cbar%7Bx%7D%20%5Cright%20)%7D%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft(%20x_%7Bi%7Dx_%7Bi%7D-n%5Cbar%7Bx%7D%5Cbar%7Bx%7D%20%5Cright%20)%7D=%5Cfrac%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft(%20y_%7Bi%7D-%5Cbar%7By%7D%20%5Cright%20)%5Cleft%20(%20x_%7Bi%7D-%5Cbar%7Bx%7D%20%5Cright%20)%7D%7B%5Csum_%7Bi=1%7D%5E%7Bn%7D%5Cleft(%20x_%7Bi%7D-%5Cbar%7Bx%7D%20%5Cright%20)%5E%7B2%7D'>
+
+$b_{1}$ 為斜率： $b_{1} > 0$ , $\hat{y_{i}}$ 隨著 $x_{i}$ 上升而增加； $b_{1} < 0$ , $\hat{y_{i}}$ 隨著 $x_{i}$ 增加而減少    
+$b_{0}$ 為截距： 當 $x_{i} = 0$ 時, $b_{0}$ 便相當於 $\hat{y_{i}}$ 的平均值； 當 $x_{i} \neq 0$ 時, 則 $b_{0}$ 無意義   
+
     誤差項 $\varepsilon _{0}$ 三大假設:      
     1. 常態性(Normality)：若母體為常態分配，則遵循(採用常態機率圖 normal probability plot 或 Shapiro-Wilk常態性檢定做檢查)     
     2. 獨立性(Independency)：誤差項需相互獨立(Durbin-Watson test來檢查)  
@@ -247,22 +268,45 @@ $$L1(X) = \left | X_{1} \right | + \left | X_{2} \right | + ... + \left | X_{n} 
     1. 自變數 (Independent variable): 獨立的變數，會影響因變數及預測結果    
     2. 因變數 (Dependent variable)：依賴於自變數，通常設定為要預測的項目  
 
-    假設檢定 (Hypothesis Testing):  
-    將事件假設為 虛無假設( $H_{0}$ ) 與 對立假設( $H_{1}$ ),並確定假設(左尾、右尾、雙尾),利用 p值判斷是否成立 ( $p \leq \alpha(0.05)$ 成立假設)  
-    1. 虛無假設( $H_{0}$ ) : 希望能證明為錯誤  
-    2. 對立假設( $H_{1}$ ) : 透過假設檢定來證明對立假說為真，有充足證據拒絕虛無假說時，即可接受對立假說，而若無充足證據證明對立假說為真時，則「不拒絕」虛無假說  
-      
-    <img src="https://d1dwq032kyr03c.cloudfront.net/upload/images/20210830/20138527Bo4ZqGolPu.png">
-    
-    顯著水準(significant level, $\alpha$ ):  
-    拒絕了「實際上成立的虛無假設」之機率，即犯下「Type 1 Error」的機率  
-    
-    $$P\left ( \bar{x}-z_{\alpha /2}*\frac{\sigma }{\sqrt{n}} \leq \mu \geq \bar{x}-z_{\alpha /2}*\frac{\sigma }{\sqrt{n}}\right ) = 0.95$$
-          
-          
-        
 
 
+假設檢定 (Hypothesis Testing):  
+將事件假設為 虛無假設( $H_{0}$ ) 與 對立假設( $H_{1}$ ),並確定假設(左尾、右尾、雙尾),利用 p值判斷是否成立 ( $p \leq \alpha(0.05)$ 成立假設)  
+1. 虛無假設( $H_{0}$ ) : 希望能證明為錯誤  
+2. 對立假設( $H_{1}$ ) : 透過假設檢定來證明對立假說為真，有充足證據拒絕虛無假說時，即可接受對立假說，而若無充足證據證明對立假說為真時，則「不拒絕」虛無假說
+    
+<img src="https://pic.pimg.tw/yourgene/1484708489-54953476.png">
+
+Assuming 10  
+雙尾檢定(Two-tailed test)：      
+
+$$\begin{cases}
+ & \text{} H_{0}: \mu = 10 \\
+ & \text{} H_{1}: \mu \neq  10 \\
+\end{cases}$$
+
+左尾檢定(Left-tailed test)：        
+
+$$\begin{cases}
+ & \text{} H_{0}: \mu \geq  10 \\
+ & \text{} H_{1}: \mu <  10 \\
+\end{cases}$$
+
+右尾檢定(Right-tailed test)：      
+
+$$\begin{cases}
+ & \text{} H_{0}: \mu \leq   10 \\
+ & \text{} H_{1}: \mu >  10 \\
+\end{cases}$$
+
+       
+顯著水準(significant level, $\alpha$ ):  
+拒絕了「實際上成立的虛無假設」之機率，即犯下「Type 1 Error」的機率  
+    
+<!-- $$ P\left ( \bar{x}-z_{\alpha /2}*\frac{\sigma }{\sqrt{n}} \leq \mu \leq \bar{x}-z_{\alpha /2}*\frac{\sigma }{\sqrt{n}}\right ) = 0.95 $$ -->
+<img src='https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D%5Cbg%7Bwhite%7DP%5Cleft%20(%20%5Cbar%7Bx%7D-z_%7B%5Calpha%20/2%7D*%5Cfrac%7B%5Csigma%20%7D%7B%5Csqrt%7Bn%7D%7D%20%5Cleq%20%5Cmu%20%5Cleq%20%5Cbar%7Bx%7D-z_%7B%5Calpha%20/2%7D*%5Cfrac%7B%5Csigma%20%7D%7B%5Csqrt%7Bn%7D%7D%5Cright%20)%20=%200.95'>          
+          
+(公式為 95% 信賴區間的情況， $\alpha$ 通常情況為 0.05)  
 
 ***2. multivariate regression***   
 ***3. Log-linear regression***   
