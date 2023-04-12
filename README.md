@@ -234,6 +234,36 @@ $$L1(X) = \left | X_{1} \right | + \left | X_{2} \right | + ... + \left | X_{n} 
 ### 監督式學習(Supervised Learning)  
 - Regression Analysis    
 ***1. Simple Linear Regression***  
+使用時機：當只有單一變數時。  
+數學式：
+        $$y = b_{0} + b_{1}\cdot x + \varepsilon _{0}$$
+        
+    誤差項 $\varepsilon _{0}$ 三大假設:      
+    1. 常態性(Normality)：若母體為常態分配，則遵循(採用常態機率圖 normal probability plot 或 Shapiro-Wilk常態性檢定做檢查)     
+    2. 獨立性(Independency)：誤差項需相互獨立(Durbin-Watson test來檢查)  
+    3. 變異數同質性(Constant Variance)：變異數若不相等會導致自變數無法有效估計依變數  
+
+    自變數 (Independent variable) 與 因變數 (Dependent variable):        
+    1. 自變數 (Independent variable): 獨立的變數，會影響因變數及預測結果    
+    2. 因變數 (Dependent variable)：依賴於自變數，通常設定為要預測的項目  
+
+    假設檢定 (Hypothesis Testing):  
+    將事件假設為 虛無假設( $H_{0}$ ) 與 對立假設( $H_{1}$ ),並確定假設(左尾、右尾、雙尾),利用 p值判斷是否成立 ( $p \leq \alpha(0.05)$ 成立假設)  
+    1. 虛無假設( $H_{0}$ ) : 希望能證明為錯誤  
+    2. 對立假設( $H_{1}$ ) : 透過假設檢定來證明對立假說為真，有充足證據拒絕虛無假說時，即可接受對立假說，而若無充足證據證明對立假說為真時，則「不拒絕」虛無假說  
+    
+    <img src='https://i.imgur.com/0NW6YR5.png'>  
+    
+    顯著水準(significant level, $\alpha$ ):  
+    拒絕了「實際上成立的虛無假設」之機率，即犯下「Type 1 Error」的機率  
+    
+    $$P\left ( \bar{x}-z_{\alpha /2}*\frac{\sigma }{\sqrt{n}} \leq \mu \geq \bar{x}-z_{\alpha /2}*\frac{\sigma }{\sqrt{n}}\right ) = 0.95$$
+          
+          
+        
+
+
+
 ***2. multivariate regression***   
 ***3. Log-linear regression***   
 ***4. Log probability regression***  
