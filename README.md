@@ -275,6 +275,27 @@ def simple_linear_regression(raw_x, raw_y):
     
     return (b_0, b_1)
 ```
+```python
+# 使用 sklearn 實作
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(x,y, test_size=0.20, random_state=42) #Set test data set and training data set (8:2)
+
+
+from sklearn.linear_model import LinearRegression
+regeressor = LinearRegression()
+regeressor.fit(x_train, y_train)
+
+y_pred = regeressor.predict(x_test)
+
+#畫圖
+import matplotlib.pyplot as plot
+plot.scatter(x_train, y_train, color = 'red')
+plot.plot(x_train, regeressor.predict(x_train), color = 'blue')
+plot.title('age VS Spending Score  (training set)')
+plot.xlabel('age')
+plot.ylabel('Spending Score')
+plot.show()
+```
 
     誤差項 $\varepsilon _{0}$ 三大假設:      
     1. 常態性(Normality)：若母體為常態分配，則遵循(採用常態機率圖 normal probability plot 或 Shapiro-Wilk常態性檢定做檢查)     
@@ -314,7 +335,9 @@ $$\begin{cases}
 $$\begin{cases}
  & \text{} H_{0}: \mu \leq   10 \\
  & \text{} H_{1}: \mu >  10 \\
-\end{cases}$$
+\end{cases}$$  
+
+<img src="https://pic.pimg.tw/yourgene/1484708489-228202176_n.png">
 
        
 顯著水準(significant level, $\alpha$ ):  
