@@ -1,4 +1,3 @@
-%cbb110112 吳俊易
 clear all;
 
 Midpoint_method = zeros(1,10);
