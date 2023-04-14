@@ -4,3 +4,4 @@
 -   Numerical Analysis
 -   python
 
+詳細內容：https://hackmd.io/@oA5KzG1CSmCA8y1YTihLtg/DataScience
