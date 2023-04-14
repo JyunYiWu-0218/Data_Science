@@ -1,5 +1,5 @@
-% CBB110112 §d«T©ö
-% for Pn = 1/n , n = 1~10  ¨D^Pn
+% CBB110112 Â§dÂ«TÂ©Ã¶
+% for Pn = 1/n , n = 1~10  Â¨D^Pn
 
 
 
